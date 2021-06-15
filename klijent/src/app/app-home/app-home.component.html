@@ -1,0 +1,29 @@
+
+<p>app-home works!</p>
+<div>
+  <div class='input-boxes'  >
+    <form [formGroup]="homeForm">
+      <div>
+        <label for="complexity-select">complexity:</label>
+        <select name="complexity" id="complexity-select">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select>
+      </div>
+      <div>
+        <label for="importance-select">importance:</label>
+        <select name="importance" formControlName="importance" id="importance-select" (change)="onImportanceChange($event)">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </div>
+    </form>
+  <div *ngFor="let goal of filteredGoals">
+    <h2 class="vaznost-{{goal.vaznost}}">{{goal.naziv}}</h2>
+  </div>
+  <div >
+    <button><a routerLink="./add-goal">Add Goal</a> </button>
+  </div>
+</div>

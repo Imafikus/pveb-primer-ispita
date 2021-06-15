@@ -1,0 +1,68 @@
+<p>app-goal works!</p>
+<div>
+  <form [formGroup]="sendGoalForm" (ngSubmit)="onSubmit()">
+    <label>
+      Name:
+      <input type="text" formControlName="name">
+    </label>
+    <div *ngIf="sendGoalForm.controls['name'].invalid && (sendGoalForm.controls['name'].dirty || sendGoalForm.controls['name'].touched)"
+      class="alert alert-danger">
+
+      <div *ngIf="sendGoalForm.controls['name'].errors.required">
+        Name is required.
+      </div>
+    </div>
+
+    <label>
+      Description:
+      <input type="text" formControlName="description">
+    </label>
+    <div *ngIf="sendGoalForm.controls['description'].invalid && (sendGoalForm.controls['description'].dirty || sendGoalForm.controls['description'].touched)"
+      class="alert alert-danger">
+
+      <div *ngIf="sendGoalForm.controls['description'].errors.required">
+        Description is required.
+      </div>
+    </div>
+
+    <div>
+      <p>Importance:</p>
+
+      <input type="radio" id="importance1" formControlName="importance"
+        value="1">
+      <label for="importance1">1</label>
+
+      <input type="radio" id="importance2" formControlName="importance"
+        value="2">
+      <label for="importance2">2</label>
+
+      <input type="radio" id="importance3" formControlName="importance"
+        value="3">
+      <label for="importance3">3</label>
+    </div>
+
+    <div>
+      <label>
+        Step 1:
+        <input type="text" formControlName="step1">
+      </label>
+    </div>
+    <div>
+      <label>
+        Step 2:
+        <input type="text" formControlName="step2">
+      </label>
+    </div>
+    <div>
+      <label>
+        Step 3:
+        <input type="text" formControlName="step3">
+      </label>
+    </div>
+
+    <div >
+      <button type="submit" [disabled]="!sendGoalForm.valid">Save</button>
+      <button><a routerLink="">Close</a> </button>
+    </div>
+  </form>
+</div>
